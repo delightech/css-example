@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* 共通部分 */
+html {
+	/* ユーザーが設定した文字サイズを正しく反映 */
+	font-size: 100%;
+}
+
+body {
+	font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+	/* 行の高さ */
+	line-height: 1.7;
+	color: #432;
+}
+a {
+	/* aタグテキストの下線を消す */
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+}
+
+/* header */
+.logo {
+	width: 210px;
+	margin-top: 14px;
+}
+.main-nav {
+	display: flex;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	margin-top: 34px;
+	/* liタグによる箇条書きの点を削除 */
+	list-style: none;
+}
+.main-nav li {
+	margin-left: 36px;
+}
+.main-nav a {
+	color: #432;
+}
+.main-nav a:hover {
+	color: #0bd;
+}
+.page-header {
+	display: flex;
+	justify-content: space-between;
+}
+.wrapper {
+	/* 横幅最大1100px */
+	max-width: 1100px;
+	/* 上下のマージン:0, 左右のマージン:autoで中央配置 */
+	margin: 0 auto;
+	/* スマホ向けに左右のpaddingを4%にする */
+	padding: 0 4%;
+}
+/* HOME */
+.home-content {
+	text-align: center;
+	margin-top: 10%;
+}
+.home-content p {
+	font-size: 1.125rem;
+	margin: 10px 0 42px;
+}
+/* 見出し */
+.page-title {
+	font-size: 5rem;
+	font-family: 'Philosopher', serif;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+/* ボタン */
+.button {
+	font-size: 1.375rem;
+	/* テキストの背景に色を付けてボタンっぽくする */
+	background: #0bd;
+	color: #fff;
+	/* 背景（ボタン）の角の丸み */
+	border-radius: 5px;
+	/* テキストにpaddigを付けることでボタンっぽくする */
+	padding: 18px 32px;
+}
+/* hover擬似クラス。カーソルを合わせた場合のCSS指定 */
+.button:hover {
+	/* hover時の色指定。若干暗めの色にする */
+  background: #0090aa;
+}
+/*
+id="home"で指定された画像の表示定義を、同じdivタグに指定したbig-bgクラスで行う。
+画像の読み込みと画像の設定を切り離し、big-bgを再利用可能にしている。
+*/
+.big-bg {
+	/* 画像を縦横比を保ったまま画面いっぱいに広げる */
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+/* id="home"の画像を指定 */
+#home {
+	/* 画像読込。同時にブレンドする色（グラデーション）を追加している */
+	background-image: url(../images/main-bg.jpg), linear-gradient(#c9ffbf, #ffafbd);
+	/* ブレンドモード:輝度（明るさ）で色を変化させる */
+	background-blend-mode: luminosity;
+	/* 背景のグラデーション指定
+	background-image: linear-gradient(#c9ffbf, #ffafbd);
+	*/
+	/* ブレンドモードで画像を明るい色に変換
+	background-blend-mode: hard-light;
+	*/
+
+	/* 画面の表示領域の高さいっぱいに画像を広げる */
+	/*
+	  単純に%を使う場合、親要素の%からさらに指定した%となる（親要素の影響を受ける）
+		vh,vwは画面の表示領域に対する%となり、親要素の影響を受けない。
+	*/
+	min-height: 100vh;
+}
+#home .page-title {
+	text-transform: none;
+}
