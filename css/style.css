@@ -119,3 +119,108 @@ id="home"で指定された画像の表示定義を、同じdivタグに指定�
 #home .page-title {
 	text-transform: none;
 }
+
+/* NEWS */
+#news {
+	background-image: url(../images/news-bg.jpg);
+	height: 270px;
+	margin-bottom: 40px;
+}
+#news .page-title {
+	text-align: center;
+}
+/* footer */
+footer {
+	background:#432;
+	text-align: center;
+	padding: 26px 0;
+	margin-top: 50-x;
+}
+footer p {
+	color: #fff;
+	font-size: 0.875rem;
+}
+
+/* 記事部分 */
+article {
+	width: 74%;
+}
+/* サイドバー部分 */
+aside {
+	width: 22%;
+}
+.news-contents {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.post-info {
+	position: relative;
+	padding-top: 4px;
+	margin-bottom: 40px;
+}
+.post-date {
+	background: #0bd;
+	border-radius: 50%;
+	color: #fff;
+	width: 100px;
+	height: 100px;
+	font-size: 1.625rem;
+	text-align: center;
+	/* 日付をブロックの左端に固定するためにabsolute(絶対値指定にしている) */
+	position: absolute;
+	top: 0;
+	padding-top: 10px;
+}
+/* 年の表示の上にラインを入れる */
+.post-date span {
+	font-size: 1rem;
+	/* .5は不透明度50%の指定 */
+	border-top: 1px rgba(255, 255, 255, .5) solid;
+	padding-top: 6px;
+	display: block;
+	width: 60%;
+	margin: 0 auto;
+}
+.post-title {
+	font-family: "Yu Mincho", "YuMincho", serif;
+	font-size: 2rem;
+	font-weight: normal;
+}
+.post-title, .post-cat {
+	/* タイトルとカテゴリのテキストにマージンを付けてpost-dateとかぶらないようにする */
+	margin-left: 120px;
+}
+article img {
+	margin-bottom: 20px;
+}
+article p {
+	margin-bottom: 1rem;
+}
+.sub-title {
+	font-size: 1.375rem;
+	padding: 0 8px 8px;
+	/* 下線の設定 */
+	border-bottom: 2px #0bd solid;
+	font-weight: normal;
+}
+aside p {
+	padding: 12px 10px;
+}
+.sub-menu {
+	margin-bottom: 60px;
+	list-style: none;
+}
+.sub-menu li {
+	border-bottom: 1px #ddd solid;
+}
+.sub-menu a {
+	color: #432;
+	padding: 10px;
+	/* aタグをブロックにすることでリンクのクリックできる領域をテキストの周りにまで広げる */
+	display: block;
+}
+.sub-menu a:hover {
+	/* カーソルを合わせた際の装飾 */
+	color: #0bd;
+}
