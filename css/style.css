@@ -239,7 +239,64 @@ aside p {
 	color: #0bd;
 }
 
-/* モバイル版のスタイル */
+
+/* MENU */
+#menu {
+	background-image: url(../images/menu-bg.jpg);
+	min-height: 100vh;
+}
+.menu-content {
+	max-width: 560px;
+	margin-top: 10%;
+}
+.menu-content .page-title {
+	text-align: center;
+}
+.menu-content p {
+	font-size: 1.125rem;
+	margin: 10px 0 0;
+}
+.grid {
+	/* タイル状に並べる */
+	display: grid;
+	gap: 26px;
+	/*
+	  1:1:1の割合で3カラム並べる。
+	  4カラム並べる場合は1fr 1fr 1fr 1frとする。
+	  pxでなくfrを使うことで、画面幅に合わせて画像が伸縮する
+	grid-template-columns: 1fr 1fr 1fr;
+	  同じ数値を繰り返し記述する場合、repeat関数が使える
+	repeat(繰り返す数, 要素の幅)
+	 */
+	/*
+		要素の幅はminmaxで最小値,最大値を指定可能。
+	minmax(最小値, 最大値)
+	 */
+	/* repeatに列の数を指定せずauto-fitにすることで画面幅に合わせて折り返される */
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	margin-top: 6%;
+	margin-bottom: 50px;
+}
+.big-box {
+	/* 横の範囲を3番目のグリッドラインまでに指定(画像2つ分) */
+	grid-column: 1 / 3;
+	/* 縦の範囲を3番目のグリッドラインまでに指定(画像2つ分) */
+	grid-row: 1 / 3;
+}
+.big-box img {
+	height: 94%;
+	width: 100;
+	/*
+	  画像が縮小されてアスペクト比が変わるのを防ぐ。
+	  はみ出した部分は自動トリミングとする。
+		画像の表示範囲をトリミングする時はobject-fitを使う。
+	*/
+	object-fit: cover;
+}
+/*
+  モバイル版のスタイル
+  スタイルが上書きされないように、共通スタイルより後に書く
+*/
 /*
   メディアクエリーの指定
 	画面幅が600px以下の場合のスタイルを記述
@@ -299,5 +356,16 @@ aside p {
 	}
 	.post-title, .post-cat {
 		margin-left: 80px;
+	}
+	/* MENU */
+	.menu-content {
+		margin-top: 20%;
+	}
+	.big-box {
+		grid-column: auto;
+		grid-row: auto;
+	}
+	.big-box img {
+		height: 100%;
 	}
 }
