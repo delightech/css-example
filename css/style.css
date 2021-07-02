@@ -143,11 +143,25 @@ footer p {
 
 /* 記事部分 */
 article {
-	width: 74%;
+	width: 60%;
+	/*
+	  flex itemsの表示したい順番を指定。HTMLの記述順に関係なく並べられる。
+		HTMLで順番を操作しないのは、ページは上から読み込まれるので、
+		ページの重要な部分（article）の記述を上に持ってくるべきであるため。
+		検索エンジンも上にあるコンテンツの方が重要度が高いと判断するらしい。
+		（特に広告(.ad)部分は後からの読み込みにすべき。実際には広告はjs等で読み込みが遅くなるはず）
+	 */
+	order: 2;
 }
 /* サイドバー部分 */
 aside {
 	width: 22%;
+	/* flex itemsの表示したい順番を指定。HTMLの記述順に関係なく並べられる */
+	order: 3;
+}
+.ad {
+	/* flex itemsの表示したい順番を指定。HTMLの記述順に関係なく並べられる */
+	order: 1;
 }
 .news-contents {
 	display: flex;
@@ -223,4 +237,67 @@ aside p {
 .sub-menu a:hover {
 	/* カーソルを合わせた際の装飾 */
 	color: #0bd;
+}
+
+/* モバイル版のスタイル */
+/*
+  メディアクエリーの指定
+	画面幅が600px以下の場合のスタイルを記述
+ */
+@media (max-width: 600px) {
+	.page-title {
+		font-size: 2.5rem;
+	}
+	/* HEADER */
+	.main-nav {
+		font-size: 1rem;
+		margin-top: 10px;
+	}
+	.main-nav li {
+		margin: 0 20px;
+	}
+	/* HOME */
+	.home-content {
+		margin-top: 20%;
+	}
+	/* flex itemを中央揃えで縦並びに並べる */
+	.page-header {
+		flex-direction: column;
+		align-items: center;
+	}
+	/* NEWS */
+	.news-contents {
+		flex-direction: column;
+	}
+	article, aside {
+		width: 100%;
+	}
+	#news .page-title {
+		margin-top: 30px;
+	}
+	aside {
+		margin-top: 60px;
+	}
+	.post-info {
+		margin-bottom: 30px;
+	}
+	.post-date {
+		width: 70px;
+		height: 70px;
+		font-size: 1rem;
+	}
+	.post-date span {
+		font-size: 0.875rem;
+		padding-top: 2px;
+	}
+	.post-title {
+		font-size: 1.375rem;
+	}
+	.post-cat {
+		font-size: 0.875;
+		margin-top: 10px;
+	}
+	.post-title, .post-cat {
+		margin-left: 80px;
+	}
 }
